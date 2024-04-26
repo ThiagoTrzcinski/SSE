@@ -8,12 +8,12 @@ Este é um exemplo simples de um contador de votos em tempo real implementado em
 
 ## Como rodar
 
-4. Execute o servidor Node.js com o seguinte comando: `node server.js`
+1. Execute o servidor Node.js com o seguinte comando: `node server.js`
 
-5. Abra um navegador da web e acesse `http://localhost:3000` para visualizar a página de votação.
+2. Abra um navegador da web e acesse `http://localhost:3000` para visualizar a página de votação.
 
-6. Vote nas opções fornecidas e veja os resultados sendo atualizados em tempo real na página.
+3. Vote nas opções fornecidas e veja os resultados sendo atualizados em tempo real na página.
 
-7. Para parar o servidor, pressione `Ctrl + C` no terminal.
+4. Para parar o servidor, pressione `Ctrl + C` no terminal.
 
 
