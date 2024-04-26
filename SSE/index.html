@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de votos</title>
+</head>
+<body>
+  <h1>Contador de votos em tempo real</h1>
+  <div>
+    <h2>Fazer greve</h2>
+    <button onclick="vote('option1')">Votar</button>
+    <span id="option1-votes">0</span>
+  </div>
+  <div>
+    <h2>Não fazer greve</h2>
+    <button onclick="vote('option2')">Votar</button>
+    <span id="option2-votes">0</span>
+  </div>
+
+  <script>
+    const eventSource = new EventSource('/votes');
+
+    eventSource.onmessage = function(event) {
+      const votes = JSON.parse(event.data);
+      document.getElementById('option1-votes').innerText = votes.option1;
+      document.getElementById('option2-votes').innerText = votes.option2;
+    };
+
+    function vote(option) {
+      fetch('/vote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ option })
+      });
+    }
+  </script>
+</body>
+</html>
